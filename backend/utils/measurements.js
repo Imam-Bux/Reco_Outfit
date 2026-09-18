@@ -67,8 +67,10 @@ export const sanitizeMeasurementSnapshot = (snapshot) => {
   if (!snapshot || typeof snapshot !== 'object') return result;
   for (const key of MEASUREMENT_KEYS) {
     if (!(key in snapshot)) continue;
-    const value = parseDecimal(snapshot[key]);
-    if (value !== undefined) result[key] = value;
+    const raw = String(snapshot[key] ?? '').trim();
+    if (raw === '') continue;
+    if (parseDecimal(raw) === undefined) continue;
+    result[key] = raw;
   }
   return result;
 };

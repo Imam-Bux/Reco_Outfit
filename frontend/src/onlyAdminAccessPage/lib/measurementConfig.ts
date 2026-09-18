@@ -44,9 +44,7 @@ export const MEASUREMENT_KEYS: string[] = MEASUREMENT_FIELDS.map((f) => f.key);
 
 export const DECIMAL_REGEX = /^\d+(\.\d+)?$/;
 
-export interface MeasurementSnapshotValue {
-  [key: string]: number;
-}
+export type MeasurementSnapshotValue = Record<string, number | string>;
 
 export function parseDecimalInput(input: unknown): number | undefined {
   if (input === null || input === undefined || input === '') return undefined;
@@ -83,8 +81,9 @@ export function sanitizeMeasurementSnapshot(
   if (!snapshot || typeof snapshot !== 'object') return result;
   for (const key of MEASUREMENT_KEYS) {
     if (!(key in snapshot)) continue;
-    const parsed = parseDecimalInput(snapshot[key]);
-    if (parsed !== undefined) result[key] = parsed;
+    const raw = String(snapshot[key] ?? '').trim();
+    if (raw === '' || parseDecimalInput(raw) === undefined) continue;
+    result[key] = raw;
   }
   return result;
 }

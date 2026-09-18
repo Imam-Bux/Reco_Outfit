@@ -17,15 +17,19 @@ export const customerValidationSchema = Yup.object({
   notes: Yup.string().trim().notRequired(),
 });
 
-export const measurementValueSchema = Yup.number()
+export const measurementValueSchema = Yup.string()
   .transform((value: unknown) => {
     if (value === null || value === undefined) return undefined;
-    if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
+    if (typeof value === 'number') {
+      return Number.isFinite(value) ? String(value) : undefined;
+    }
     const raw = String(value).trim();
     if (raw === '') return undefined;
-    return parseDecimalInput(raw) ?? NaN;
+    return parseDecimalInput(raw) !== undefined ? raw : undefined;
   })
-  .typeError('Enter a valid number or fraction')
+  .test('valid-measurement', 'Enter a valid number or fraction', (value) => {
+    return value === undefined || value === '' || parseDecimalInput(value) !== undefined;
+  })
   .min(0, 'Cannot be negative')
   .notRequired();
 
