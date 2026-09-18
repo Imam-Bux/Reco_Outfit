@@ -22,7 +22,7 @@ function renderDesigns(designs: Designs | undefined) {
             {section.label}
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[section.label]}</span>
+            <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[section.label as keyof typeof DESIGN_OPTION_ICONS]}</span>
             <span className="text-secondary-700">Yes</span>
           </div>
         </div>
@@ -38,7 +38,7 @@ function renderDesigns(designs: Designs | undefined) {
           {section.label}
         </p>
         <div className="flex items-center gap-2">
-          <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[option.value]}</span>
+          <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[option.value as keyof typeof DESIGN_OPTION_ICONS]}</span>
           <span className="text-secondary-700">{value.selected}</span>
         </div>
       </div>

@@ -16,7 +16,7 @@ export default function DesignSectionBlock({
         <label className="relative flex items-center gap-2.5 cursor-pointer hover:border-primary-300 transition select-none">
           <Field type="checkbox" name={`${namePrefix}.enabled`} className="peer sr-only" />
           <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-100/70 border border-primary-200/70 text-primary-700 shadow-sm shrink-0 peer-checked:bg-primary-200/80 peer-checked:text-primary-800">
-            {DESIGN_OPTION_ICONS[section.label]}
+            {DESIGN_OPTION_ICONS[section.label as keyof typeof DESIGN_OPTION_ICONS]}
           </span>
           <span className="text-[12px] text-secondary-800 peer-checked:text-primary-800 font-medium flex-1 leading-tight">
             Add {section.label}
@@ -48,7 +48,7 @@ export default function DesignSectionBlock({
               className="peer sr-only"
             />
             <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary-100/70 border border-primary-200/70 text-primary-700 shadow-sm shrink-0 peer-checked:bg-primary-200/80 peer-checked:text-primary-800">
-              {DESIGN_OPTION_ICONS[opt.value]}
+              {DESIGN_OPTION_ICONS[opt.value as keyof typeof DESIGN_OPTION_ICONS]}
             </span>
             <span className="text-[12px] leading-tight text-secondary-800 peer-checked:text-primary-800 flex-1">
               {opt.value}
