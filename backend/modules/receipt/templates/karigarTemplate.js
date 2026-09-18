@@ -210,7 +210,7 @@ export const buildKarigarHtml = (order) => {
   <button class="print-btn" onclick="window.print()">&#128424; Print</button>
   <div class="page">
     <div class="header">
-      ${SHOP_INFO.logo ? `<img class="logo" src="${SHOP_INFO.logo}" alt="Logo" />` : ''}
+      ${SHOP_INFO.logoMarkup}
       <div>
         <div class="h-title">${escapeHtml(SHOP_INFO.name)}</div>
         <div class="h-sub">Karigar Work Sheet</div>

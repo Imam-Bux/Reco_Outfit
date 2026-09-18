@@ -200,11 +200,7 @@ export const buildReceiptHtml = (receipt) => {
     <body>
       <div class="page">
         <div class="letterhead">
-          ${
-            receipt.shopInformation.logo || SHOP_INFO.logo
-              ? `<img class="logo" src="${receipt.shopInformation.logo || SHOP_INFO.logo}" alt="RecoOutfit" />`
-              : ''
-          }
+          ${SHOP_INFO.logoMarkup}
           <h1 class="shop-name">${escapeHtml(receipt.shopInformation.name)}</h1>
           <p class="tagline">Every Stitch, Perfected</p>
           <p class="shop-meta">${escapeHtml(receipt.shopInformation.address)}</p>
