@@ -1,31 +1,19 @@
 export const MEASUREMENT_KEYS = [
   'length', 'shoulder', 'sleeves', 'collar', 'chest', 'waist', 'hip',
-  'takti', 'armhole', 'elbow', 'kalai', 'cuff', 'patti', 'patti_width',
+  'takti', 'armhole', 'bicep', 'kalai', 'cuff', 'patti', 'patti_width',
   'losing_chest', 'losing_hip', 'losing_waist',
-  'shalwar_length', 'shalwar_gair', 'asan', 'paicha',
+  'shalwar_length', 'shalwar_gair', 'shalwar_width', 'leg_opening',
 ];
 
 export const DESIGN_CHOICE_OPTIONS = {
-  collar: ['Sherwani Collar', 'Kammez Collar', 'Non-Collar', 'Custom'],
+  collar: ['Sherwani Collar', 'Kammez Collar', 'Non-Collar'],
   pockets: [
     '1 Front', '2 Front', '1 Side', '2 Side', 'Shalwar Pockets', 'Kali Pocket', 'Custom',
   ],
-  daman: ['Gol', 'Square', 'Custom'],
+  daman: ['Gol', 'Square'],
   cuff: ['Square', 'Round', 'Double', 'Custom'],
   paincha: ['Katti', 'Custom'],
-  stitching: ['Single Stitching', 'Double Stitching', 'Triple Stitching', 'Custom'],
-  buttons: ['Normal Button', 'Fancy Button', 'Tich Button', 'Custom'],
-  buttonhole: ['Normal Buttonhole', 'Threaded Buttonhole', 'Custom'],
-  sleeve_pleat: ['Sleeve Pleat', 'No Pleat', 'Custom'],
-  shalwar_type: ['Normal Shalwar', 'Trouser Shalwar', 'Balochi Shalwar', 'Custom'],
 };
-
-export const DESIGN_TOGGLE_KEYS = [
-  'silk_thread',
-  'designer_suit',
-  'hidden_placket',
-  'netted_leg_opening',
-];
 
 export const parseDecimal = (input) => {
   if (input === null || input === undefined || input === '') return undefined;
@@ -81,15 +69,6 @@ export const sanitizeDesigns = (designs) => {
     const selected = String(section.selected ?? '');
     result[key] = {
       selected: DESIGN_CHOICE_OPTIONS[key].includes(selected) ? selected : '',
-      referenceImage: sanitizeImageUrl(section.referenceImage),
-      customText: String(section.customText ?? '').trim(),
-    };
-  }
-
-  for (const key of DESIGN_TOGGLE_KEYS) {
-    const section = designs[key] && typeof designs[key] === 'object' ? designs[key] : {};
-    result[key] = {
-      enabled: Boolean(section.enabled),
       referenceImage: sanitizeImageUrl(section.referenceImage),
       customText: String(section.customText ?? '').trim(),
     };

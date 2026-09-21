@@ -30,16 +30,7 @@ type DesignOptionKey =
   | 'Sherwani Collar' | 'Kammez Collar' | 'Non-Collar'
   | '1 Front' | '2 Front' | '1 Side' | '2 Side' | 'Shalwar Pockets' | 'Kali Pocket'
   | 'Gol' | 'Square' | 'Round' | 'Double' | 'Katti'
-  | 'Custom'
-  | 'Silk Thread'
-  | 'Designer Suit'
-  | 'Hidden Placket'
-  | 'Netted Leg Opening'
-  | 'Single Stitching' | 'Double Stitching' | 'Triple Stitching'
-  | 'Normal Button' | 'Fancy Button' | 'Tich Button'
-  | 'Normal Buttonhole' | 'Threaded Buttonhole'
-  | 'Sleeve Pleat' | 'No Pleat'
-  | 'Normal Shalwar' | 'Trouser Shalwar' | 'Balochi Shalwar';
+  | 'Custom';
 
 export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
   'Sherwani Collar': (
@@ -148,119 +139,6 @@ export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
       <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
       <path d="M4 9v2h16M9 4v6M15 4v10" />
       <path d="M4 9h16" strokeWidth="1.1" />
-    </OptIcon>
-  ),
-
-  'Silk Thread': (
-    <OptIcon>
-      <rect x="4" y="4" width="16" height="16" rx="2" />
-      <path d="M4 8c4 2 12-2 16 0M4 12c4 2 12-2 16 0M4 16c4 2 12-2 16 0" strokeWidth="1.3" />
-      <path d="M19 20l2.5 2.5" />
-    </OptIcon>
-  ),
-
-  'Designer Suit': (
-    <OptIcon>
-      <path d="M8 3L4 6v14h16V6l-4-3-4 2-4-2z" strokeLinejoin="round" />
-      <path d="M12 5l-1.5 4L12 12l1.5-3L12 5z" strokeWidth="1.3" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-
-  'Hidden Placket': (
-    <OptIcon>
-      <path d="M8 3v18M16 3v18" />
-      <path d="M8 3c2 1.5 2 16.5 0 18" strokeDasharray="2 2" />
-    </OptIcon>
-  ),
-
-  'Netted Leg Opening': (
-    <OptIcon>
-      <path d="M9 2h6l.8 15h-7.6L9 2z" strokeLinejoin="round" />
-      <path d="M8.4 17h7.2M8.7 19h6.6M9 21h6" strokeWidth="1.3" />
-    </OptIcon>
-  ),
-
-  'Single Stitching': (
-    <OptIcon>
-      <path d="M12 2v20" strokeWidth="2" strokeDasharray="2.4 2.2" />
-    </OptIcon>
-  ),
-  'Double Stitching': (
-    <OptIcon>
-      <path d="M9 2v20" strokeWidth="2" strokeDasharray="2.4 2.2" />
-      <path d="M15 2v20" strokeWidth="2" strokeDasharray="2.4 2.2" />
-    </OptIcon>
-  ),
-  'Triple Stitching': (
-    <OptIcon>
-      <path d="M6.5 2v20" strokeWidth="1.8" strokeDasharray="2.2 2" />
-      <path d="M12 2v20" strokeWidth="1.8" strokeDasharray="2.2 2" />
-      <path d="M17.5 2v20" strokeWidth="1.8" strokeDasharray="2.2 2" />
-    </OptIcon>
-  ),
-
-  'Normal Button': (
-    <OptIcon>
-      <circle cx="12" cy="12" r="9" />
-      <circle cx="9.5" cy="9.5" r="1" fill="currentColor" />
-      <circle cx="14.5" cy="9.5" r="1" fill="currentColor" />
-      <circle cx="9.5" cy="14.5" r="1" fill="currentColor" />
-      <circle cx="14.5" cy="14.5" r="1" fill="currentColor" />
-    </OptIcon>
-  ),
-  'Fancy Button': (
-    <OptIcon>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 6.5a5.5 5.5 0 015.5 5.5M12 6.5A5.5 5.5 0 006.5 12M12 17.5A5.5 5.5 0 006.5 12M12 17.5a5.5 5.5 0 005.5-5.5" strokeWidth="1.1" />
-      <circle cx="12" cy="12" r="1.3" fill="currentColor" />
-    </OptIcon>
-  ),
-  'Tich Button': (
-    <OptIcon>
-      <circle cx="9" cy="12" r="6.4" strokeWidth="1.4" />
-      <circle cx="15.5" cy="12" r="6.4" strokeWidth="1.4" />
-      <circle cx="9" cy="12" r="0.9" fill="currentColor" />
-      <circle cx="15.5" cy="12" r="0.9" fill="currentColor" />
-    </OptIcon>
-  ),
-
-  'Normal Buttonhole': (
-    <OptIcon>
-      <rect x="10.5" y="3" width="3" height="18" rx="1.5" />
-    </OptIcon>
-  ),
-  'Threaded Buttonhole': (
-    <OptIcon>
-      <rect x="10.5" y="3" width="3" height="18" rx="1.5" />
-      <path d="M8 5.5h1.8M14.2 5.5H16M8 9h1.8M14.2 9H16M8 12.5h1.8M14.2 12.5H16M8 16h1.8M14.2 16H16M8 19.5h1.8M14.2 19.5H16" strokeWidth="1" />
-    </OptIcon>
-  ),
-
-  'Sleeve Pleat': (
-    <OptIcon>
-      <path d="M8 2v20M12 2v20M16 2v20" />
-      <path d="M8 2l4 3-4 3M16 8l-4 3 4 3" strokeWidth="1.3" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-  'No Pleat': (
-    <OptIcon>
-      <rect x="8" y="2" width="8" height="20" rx="1" />
-    </OptIcon>
-  ),
-
-  'Normal Shalwar': (
-    <OptIcon>
-      <path d="M9 2h6l1 12-1 8h-2l-1-9-1 9H9l-1-8L9 2z" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-  'Trouser Shalwar': (
-    <OptIcon>
-      <path d="M9 2h6l.6 20h-2.2l-.9-14-.9 14H9.4L9 2z" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-  'Balochi Shalwar': (
-    <OptIcon>
-      <path d="M6 2h12l-1.5 8c1 1 1.5 2.4 1.5 4l-1 8h-2.4l-.6-9-.6 9h-3l-.6-9-.6 9H6.5l-1-8c0-1.6.5-3 1.5-4L6 2z" strokeWidth="1.4" strokeLinejoin="round" />
     </OptIcon>
   ),
 };

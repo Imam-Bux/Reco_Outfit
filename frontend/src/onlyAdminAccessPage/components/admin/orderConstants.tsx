@@ -2,21 +2,15 @@ import type { ReactElement } from 'react';
 import { MEASUREMENT_FIELDS, sanitizeMeasurementSnapshot } from '../../lib/measurementConfig';
 import { Designs, OrderItem } from '../../lib/types';
 import {
-  ButtonIcon,
   CashIcon,
   CollarIcon,
   CuffIcon,
   ExpandIcon,
-  LockIcon,
   PantsIcon,
-  PleatIcon,
   PocketIcon,
   RulerIcon,
   ShirtIcon,
   SparklesIcon,
-  StitchIcon,
-  SuitIcon,
-  ThreadIcon,
   UserIcon,
 } from './icons';
 
@@ -35,7 +29,6 @@ const measurementFieldKeys = MEASUREMENT_FIELDS.map(
 ) as (keyof OrderItem['measurementSnapshot'])[];
 
 const defaultChoice = { selected: '', referenceImage: '', customText: '' };
-const defaultToggle = { enabled: false, referenceImage: '', customText: '' };
 
 const normalizeMeasurementSnapshot = (existing?: Partial<OrderItem['measurementSnapshot']>) => {
   const snapshot: Record<string, string | number | undefined> = {};
@@ -58,15 +51,6 @@ export const normalizeItem = (item?: Partial<OrderItem>): OrderItem => {
       daman: { ...defaultChoice, ...designs?.daman },
       cuff: { ...defaultChoice, ...designs?.cuff },
       paincha: { ...defaultChoice, ...designs?.paincha },
-      silk_thread: { ...defaultToggle, ...designs?.silk_thread },
-      stitching: { ...defaultChoice, ...designs?.stitching },
-      buttons: { ...defaultChoice, ...designs?.buttons },
-      buttonhole: { ...defaultChoice, ...designs?.buttonhole },
-      designer_suit: { ...defaultToggle, ...designs?.designer_suit },
-      sleeve_pleat: { ...defaultChoice, ...designs?.sleeve_pleat },
-      hidden_placket: { ...defaultToggle, ...designs?.hidden_placket },
-      shalwar_type: { ...defaultChoice, ...designs?.shalwar_type },
-      netted_leg_opening: { ...defaultToggle, ...designs?.netted_leg_opening },
     },
     specialInstructions: item?.specialInstructions ?? '',
     price: item?.price ?? 0,
@@ -123,13 +107,4 @@ export const DESIGN_ICONS: Record<string, ReactElement> = {
   daman: <ShirtIcon width={13} height={13} strokeWidth={2} />,
   cuff: <CuffIcon width={13} height={13} strokeWidth={2} />,
   paincha: <PantsIcon width={13} height={13} strokeWidth={2} />,
-  silk_thread: <ThreadIcon width={13} height={13} strokeWidth={2} />,
-  stitching: <StitchIcon width={13} height={13} strokeWidth={2} />,
-  buttons: <ButtonIcon width={13} height={13} strokeWidth={2} />,
-  buttonhole: <ButtonIcon width={13} height={13} strokeWidth={2} />,
-  designer_suit: <SuitIcon width={13} height={13} strokeWidth={2} />,
-  sleeve_pleat: <PleatIcon width={13} height={13} strokeWidth={2} />,
-  hidden_placket: <LockIcon width={13} height={13} strokeWidth={2} />,
-  shalwar_type: <PantsIcon width={13} height={13} strokeWidth={2} />,
-  netted_leg_opening: <PantsIcon width={13} height={13} strokeWidth={2} />,
 };

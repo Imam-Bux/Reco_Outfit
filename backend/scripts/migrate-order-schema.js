@@ -15,8 +15,8 @@ const MEASUREMENT_KEY_MAP = {
   length: 'length',
   neck: 'collar',
   armhole: 'armhole',
-  bicep: 'bicap',
-  wrist: 'sleeve_open',
+  bicep: 'bicep',
+  wrist: 'kalai',
   waist: 'waist',
   hip: 'hip',
   thigh: null,
@@ -32,20 +32,12 @@ const MEASUREMENT_KEY_MAP = {
 
 const DESIGN_KEY_MAP = {
   collar: 'collar',
-  frontPocket: 'front_pocket',
-  sidePockets: 'side_pockets',
-  shalwarPocket: 'shalwar_pocket',
+  frontPocket: 'pockets',
+  sidePockets: null,
+  shalwarPocket: null,
   daman: 'daman',
   cuff: 'cuff',
-  silkThread: 'silk_thread',
-  stitching: 'stitching',
-  buttons: 'buttons',
-  buttonhole: 'buttonhole',
-  designerSuit: 'designer_suit',
-  sleevePleat: 'sleeve_pleat',
-  hiddenPlacket: 'hidden_placket',
-  shalwarType: 'shalwar_type',
-  nettedLegOpening: 'netted_leg_opening',
+  paincha: 'paincha',
 };
 
 const migrateMeasurementSnapshot = (raw) => {

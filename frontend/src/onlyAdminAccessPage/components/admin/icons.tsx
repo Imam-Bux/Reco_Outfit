@@ -140,69 +140,6 @@ export function CuffIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function ThreadIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M5.5 18.5c4.5-6 8.5-9 11.5-11.5a4 4 0 0 0-5-5C9.5 4.5 6 8.5 3.5 16Z" />
-      <path d="M7 21c2-.5 3.5-1.5 4.5-3" />
-    </svg>
-  );
-}
-
-export function StitchIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M5 6.5 17.5 19" />
-      <path d="M5 18 17.5 5.5" strokeDasharray="2 3" />
-      <path d="M3.5 12h2" />
-      <path d="M18.5 12h2" />
-    </svg>
-  );
-}
-
-export function ButtonIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="9.5" cy="9.5" r="1" />
-      <circle cx="14.5" cy="9.5" r="1" />
-      <circle cx="9.5" cy="14.5" r="1" />
-      <circle cx="14.5" cy="14.5" r="1" />
-    </svg>
-  );
-}
-
-export function SuitIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M12 4c-2.5 0-4 1.2-4 2.5 0 1 .6 1.8 1 2.3V21h6V8.8c.4-.5 1-1.3 1-2.3C16 5.2 14.5 4 12 4Z" />
-      <path d="m9 10 3 3 3-3" />
-      <path d="M11 5v2" />
-      <path d="M13 5v2" />
-    </svg>
-  );
-}
-
-export function PleatIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <rect x="4" y="4" width="7" height="16" rx="1" />
-      <rect x="13" y="4" width="7" height="16" rx="1" />
-      <path d="M7.5 4v16" />
-      <path d="M16.5 4v16" />
-    </svg>
-  );
-}
-
-export function LockIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...base} {...props}>
-      <rect x="5" y="11" width="14" height="10" rx="2" />
-      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-    </svg>
-  );
-}
-
 export function CashIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} {...props}>

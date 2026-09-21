@@ -117,35 +117,6 @@ export default function DesignSectionBlock({
     }
   };
 
-  if (section.type === 'toggle') {
-    const enabled = Boolean(sectionValue.enabled);
-    return (
-      <div className="border border-secondary-200 rounded-xl p-2.5 bg-white/80 hover:shadow-soft transition">
-        <label className="relative flex items-center gap-2.5 cursor-pointer hover:border-primary-300 transition select-none">
-          <Field type="checkbox" name={`${namePrefix}.enabled`} className="peer sr-only" />
-          <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-100/70 border border-primary-200/70 text-primary-700 shadow-sm shrink-0 peer-checked:bg-primary-200/80 peer-checked:text-primary-800">
-            {DESIGN_OPTION_ICONS[section.label as keyof typeof DESIGN_OPTION_ICONS]}
-          </span>
-          <span className="text-[12px] text-secondary-800 peer-checked:text-primary-800 font-medium flex-1 leading-tight">
-            Add {section.label}
-          </span>
-          <span className="w-5 h-5 rounded-full border-2 border-secondary-300 flex items-center justify-center text-[10px] font-bold text-transparent peer-checked:bg-primary-500 peer-checked:border-primary-500 peer-checked:text-white transition shrink-0">
-            ✓
-          </span>
-        </label>
-        {enabled && (
-          <CustomEditor
-            namePrefix={namePrefix}
-            referenceImage={sectionValue.referenceImage}
-            uploading={uploading}
-            setUploading={setUploading}
-            token={token}
-          />
-        )}
-      </div>
-    );
-  }
-
   return (
     <div className="border border-secondary-200 rounded-xl p-3 bg-white/80 hover:shadow-soft transition">
       <p className="text-secondary-900 text-[11px] font-semibold mb-2 flex items-center gap-1.5">

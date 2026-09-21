@@ -40,26 +40,9 @@ function renderDesigns(designs: Designs | undefined) {
   if (!designs) return [];
   return DESIGN_SECTIONS.map((section) => {
     const value = designs[section.key] as
-      | { selected?: string; enabled?: boolean; referenceImage?: string; customText?: string }
+      | { selected?: string; referenceImage?: string; customText?: string }
       | undefined;
     if (!value) return null;
-
-    if (section.type === 'toggle') {
-      if (!value.enabled) return null;
-      return (
-        <div key={section.key} className="border border-secondary-200 rounded-xl p-3 bg-white/70 shadow-sm">
-          <p className="font-semibold text-secondary-900 mb-1 flex items-center gap-1.5">
-            {DESIGN_ICONS[section.key]}
-            {section.label}
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[section.label as keyof typeof DESIGN_OPTION_ICONS]}</span>
-            <span className="text-secondary-700">Yes</span>
-          </div>
-          <CustomDetail referenceImage={value.referenceImage} customText={value.customText} />
-        </div>
-      );
-    }
 
     const option = section.options.find((opt) => opt.value === value.selected);
     if (!option) return null;

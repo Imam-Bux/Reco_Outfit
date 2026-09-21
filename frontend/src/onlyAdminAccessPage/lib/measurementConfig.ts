@@ -15,7 +15,7 @@ export const MEASUREMENT_FIELDS: MeasurementFieldConfig[] = [
   { key: 'hip', label: 'Hip', type: 'text', category: 'top' },
   { key: 'takti', label: 'Takti', type: 'text', category: 'top' },
   { key: 'armhole', label: 'Arm Hole', type: 'text', category: 'top' },
-  { key: 'elbow', label: 'Elbow (Bicep)', type: 'text', category: 'top' },
+  { key: 'bicep', label: 'Bicep', type: 'text', category: 'top' },
   { key: 'kalai', label: 'Kalai (Sleeve Open)', type: 'text', category: 'top' },
   { key: 'cuff', label: 'Cuff', type: 'text', category: 'top' },
   { key: 'patti', label: 'Patti', type: 'text', category: 'top' },
@@ -25,8 +25,8 @@ export const MEASUREMENT_FIELDS: MeasurementFieldConfig[] = [
   { key: 'losing_waist', label: 'Losing Waist', type: 'text', category: 'allowance' },
   { key: 'shalwar_length', label: 'Shalwar Length', type: 'text', category: 'shalwar' },
   { key: 'shalwar_gair', label: 'Shalwar Gair', type: 'text', category: 'shalwar' },
-  { key: 'asan', label: 'Asan (Shalwar Width)', type: 'text', category: 'shalwar' },
-  { key: 'paicha', label: 'Paicha (Leg Opening)', type: 'text', category: 'shalwar' },
+  { key: 'shalwar_width', label: 'Shalwar Width', type: 'text', category: 'shalwar' },
+  { key: 'leg_opening', label: 'Leg Opening', type: 'text', category: 'shalwar' },
 ];
 
 export const MEASUREMENT_GROUPS: { key: 'top' | 'shalwar' | 'allowance'; title: string }[] = [

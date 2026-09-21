@@ -8,7 +8,7 @@ export interface MeasurementSnapshot {
   hip?: string;
   takti?: string;
   armhole?: string;
-  elbow?: string;
+  bicep?: string;
   kalai?: string;
   cuff?: string;
   patti?: string;
@@ -18,18 +18,12 @@ export interface MeasurementSnapshot {
   losing_waist?: string;
   shalwar_length?: string;
   shalwar_gair?: string;
-  asan?: string;
-  paicha?: string;
+  shalwar_width?: string;
+  leg_opening?: string;
 }
 
 export interface DesignChoice {
   selected: string;
-  referenceImage?: string;
-  customText?: string;
-}
-
-export interface DesignToggle {
-  enabled: boolean;
   referenceImage?: string;
   customText?: string;
 }
@@ -40,15 +34,6 @@ export interface Designs {
   daman: DesignChoice;
   cuff: DesignChoice;
   paincha: DesignChoice;
-  silk_thread: DesignToggle;
-  stitching: DesignChoice;
-  buttons: DesignChoice;
-  buttonhole: DesignChoice;
-  designer_suit: DesignToggle;
-  sleeve_pleat: DesignChoice;
-  hidden_placket: DesignToggle;
-  shalwar_type: DesignChoice;
-  netted_leg_opening: DesignToggle;
 }
 
 export interface OrderItem {

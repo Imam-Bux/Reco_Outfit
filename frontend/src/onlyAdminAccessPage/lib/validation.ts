@@ -41,7 +41,7 @@ export const measurementSnapshotValidationSchema = Yup.object({
   hip: measurementValueSchema,
   takti: measurementValueSchema,
   armhole: measurementValueSchema,
-  elbow: measurementValueSchema,
+  bicep: measurementValueSchema,
   kalai: measurementValueSchema,
   cuff: measurementValueSchema,
   patti: measurementValueSchema,
@@ -51,8 +51,8 @@ export const measurementSnapshotValidationSchema = Yup.object({
   losing_waist: measurementValueSchema,
   shalwar_length: measurementValueSchema,
   shalwar_gair: measurementValueSchema,
-  asan: measurementValueSchema,
-  paicha: measurementValueSchema,
+  shalwar_width: measurementValueSchema,
+  leg_opening: measurementValueSchema,
 });
 
 const choiceSectionSchema = Yup.object({
@@ -69,27 +69,12 @@ const choiceSectionSchema = Yup.object({
   }
 );
 
-const toggleSectionSchema = Yup.object({
-  enabled: Yup.boolean().notRequired(),
-  referenceImage: Yup.string().notRequired(),
-  customText: Yup.string().notRequired(),
-});
-
 export const designsValidationSchema = Yup.object({
   collar: choiceSectionSchema,
   pockets: choiceSectionSchema,
   daman: choiceSectionSchema,
   cuff: choiceSectionSchema,
   paincha: choiceSectionSchema,
-  silk_thread: toggleSectionSchema,
-  stitching: choiceSectionSchema,
-  buttons: choiceSectionSchema,
-  buttonhole: choiceSectionSchema,
-  designer_suit: toggleSectionSchema,
-  sleeve_pleat: choiceSectionSchema,
-  hidden_placket: toggleSectionSchema,
-  shalwar_type: choiceSectionSchema,
-  netted_leg_opening: toggleSectionSchema,
 });
 
 export const orderItemValidationSchema = Yup.object({
