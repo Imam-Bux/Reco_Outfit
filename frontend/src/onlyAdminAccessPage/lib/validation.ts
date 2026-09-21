@@ -52,7 +52,7 @@ export const measurementSnapshotValidationSchema = Yup.object({
   shalwar_length: measurementValueSchema,
   shalwar_gair: measurementValueSchema,
   shalwar_width: measurementValueSchema,
-  leg_opening: measurementValueSchema,
+  paicha: measurementValueSchema,
 });
 
 const choiceSectionSchema = Yup.object({

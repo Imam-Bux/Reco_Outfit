@@ -19,7 +19,7 @@ export interface MeasurementSnapshot {
   shalwar_length?: string;
   shalwar_gair?: string;
   shalwar_width?: string;
-  leg_opening?: string;
+  paicha?: string;
 }
 
 export interface DesignChoice {

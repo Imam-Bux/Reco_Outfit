@@ -26,7 +26,7 @@ export const MEASUREMENT_FIELDS: MeasurementFieldConfig[] = [
   { key: 'shalwar_length', label: 'Shalwar Length', type: 'text', category: 'shalwar' },
   { key: 'shalwar_gair', label: 'Shalwar Gair', type: 'text', category: 'shalwar' },
   { key: 'shalwar_width', label: 'Shalwar Width', type: 'text', category: 'shalwar' },
-  { key: 'leg_opening', label: 'Leg Opening', type: 'text', category: 'shalwar' },
+  { key: 'paicha', label: 'Paicha', type: 'text', category: 'shalwar' },
 ];
 
 export const MEASUREMENT_GROUPS: { key: 'top' | 'shalwar' | 'allowance'; title: string }[] = [

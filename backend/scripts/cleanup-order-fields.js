@@ -12,7 +12,7 @@ const MEASUREMENT_KEYS = [
   'length', 'shoulder', 'sleeves', 'collar', 'chest', 'waist', 'hip',
   'takti', 'armhole', 'bicep', 'kalai', 'cuff', 'patti', 'patti_width',
   'losing_chest', 'losing_hip', 'losing_waist',
-  'shalwar_length', 'shalwar_gair', 'shalwar_width', 'leg_opening',
+  'shalwar_length', 'shalwar_gair', 'shalwar_width', 'paicha',
 ];
 
 // Rename legacy keys to the current schema. Any key not present here and not
@@ -27,6 +27,7 @@ const MEASUREMENT_LEGACY_MAP = {
   patti_length: 'patti',
   shalwar_waist: null,
   shalwar_gair: 'shalwar_gair',
+  leg_opening: 'paicha',
 };
 
 const DESIGN_KEYS = ['collar', 'pockets', 'daman', 'cuff', 'paincha'];

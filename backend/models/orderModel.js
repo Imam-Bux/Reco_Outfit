@@ -42,7 +42,7 @@ const measurementSnapshotSchema = new mongoose.Schema(
     shalwar_length: String,
     shalwar_gair: String,
     shalwar_width: String,
-    leg_opening: String,
+    paicha: String,
   },
   { _id: false }
 );

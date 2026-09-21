@@ -2,7 +2,7 @@ export const MEASUREMENT_KEYS = [
   'length', 'shoulder', 'sleeves', 'collar', 'chest', 'waist', 'hip',
   'takti', 'armhole', 'bicep', 'kalai', 'cuff', 'patti', 'patti_width',
   'losing_chest', 'losing_hip', 'losing_waist',
-  'shalwar_length', 'shalwar_gair', 'shalwar_width', 'leg_opening',
+  'shalwar_length', 'shalwar_gair', 'shalwar_width', 'paicha',
 ];
 
 export const DESIGN_CHOICE_OPTIONS = {

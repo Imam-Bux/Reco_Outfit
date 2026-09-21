@@ -21,7 +21,7 @@ const MEASUREMENT_KEY_MAP = {
   hip: 'hip',
   thigh: null,
   knee: null,
-  bottom: 'leg_opening',
+  bottom: 'paicha',
   shalwarLength: 'shalwar_length',
   pantLength: null,
   inseam: null,

@@ -19,7 +19,7 @@ export const MEASUREMENT_LABELS = {
   shalwar_length: 'Shalwar Length',
   shalwar_gair: 'Shalwar Gair',
   shalwar_width: 'Shalwar Width',
-  leg_opening: 'Leg Opening',
+  paicha: 'Paicha',
 };
 
 export const DESIGN_SECTIONS = {
