@@ -183,7 +183,7 @@ export default function OrderPreview({ order: o }: { order: Order }) {
                 </div>
 
                 <div>
-                  <p className="text-secondary-500 uppercase font-semibold mb-2">Measurements (inches)</p>
+                  <p className="text-secondary-500 uppercase font-semibold mb-2">Measurements (Naap)</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-1.5">
                     {MEASUREMENT_FIELDS.map((m) => (
                       <div key={m.key} className="flex justify-between gap-2 border-b border-secondary-200/70 pb-1">

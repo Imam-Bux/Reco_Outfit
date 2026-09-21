@@ -90,7 +90,7 @@ export const labelClass = 'text-secondary-900 text-[11px] font-medium mb-1 block
 export const wizardSteps: { label: string; icon: ReactElement }[] = [
   { label: 'Customer & Details', icon: <UserIcon width={14} height={14} strokeWidth={2} /> },
   { label: 'Order Items', icon: <ShirtIcon width={14} height={14} strokeWidth={2} /> },
-  { label: 'Measurements', icon: <RulerIcon width={14} height={14} strokeWidth={2} /> },
+  { label: 'Measurements (Naap)', icon: <RulerIcon width={14} height={14} strokeWidth={2} /> },
   { label: 'Designs', icon: <SparklesIcon width={14} height={14} strokeWidth={2} /> },
   { label: 'Payment & Confirm', icon: <CashIcon width={14} height={14} strokeWidth={2} /> },
 ];

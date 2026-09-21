@@ -181,7 +181,7 @@ function MeasurementsStep({ values }: { values: OrderFormValues }) {
     <section className="space-y-6">
       <h3 className="text-secondary-900 font-heading font-bold text-[11px] flex items-center gap-2">
         <span className="text-primary-600"><RulerIcon width={15} height={15} strokeWidth={2.2} /></span>
-        Measurements (inches)
+        Measurements (Naap)
       </h3>
       {values.items.map((item: OrderItem, index: number) => (
         <div key={index} className="border border-secondary-300 rounded-2xl p-5 bg-white/70 shadow-soft">

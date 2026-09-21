@@ -86,9 +86,6 @@ function CustomEditor({
           <PlusIcon width={12} height={12} strokeWidth={2.5} />
           {uploading ? 'Uploading...' : referenceImage ? 'Change image' : 'Add image'}
         </label>
-        <span className="text-[10px] text-secondary-400">
-          Image is stored in the design image database and shown anytime.
-        </span>
       </div>
     </div>
   );
