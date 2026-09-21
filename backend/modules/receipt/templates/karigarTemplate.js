@@ -21,6 +21,16 @@ const buildItemHtml = (item, idx) => {
     const parts = buildDesignText(d[key], section);
     if (!parts) continue;
 
+    const design = d[key] || {};
+    const customText = design.customText ? String(design.customText).trim() : '';
+    const referenceImage = design.referenceImage ? String(design.referenceImage).trim() : '';
+    const extraHtml = [
+      customText ? `<span class="d-note">${escapeHtml(customText)}</span>` : '',
+      referenceImage
+        ? `<img class="d-img" src="${escapeHtml(referenceImage)}" alt="${escapeHtml(section.label)} reference" />`
+        : '',
+    ].join('');
+
     if (section.type === 'toggle') {
       designBlocks.push(
         `<div class="d-card">
@@ -28,17 +38,19 @@ const buildItemHtml = (item, idx) => {
           <div class="d-text">
             <span class="d-label">${section.label}</span>
             <span class="d-val d-yes">Yes</span>
+            ${extraHtml}
           </div>
         </div>`
       );
     } else {
-      const value = d[key] && d[key].selected;
+      const value = design.selected;
       designBlocks.push(
         `<div class="d-card">
           ${designIconSvg(value)}
           <div class="d-text">
             <span class="d-label">${section.label}</span>
             <span class="d-val">${escapeHtml(value)}</span>
+            ${extraHtml}
           </div>
         </div>`
       );
@@ -167,6 +179,8 @@ export const buildKarigarHtml = (order) => {
   .d-text { display: flex; flex-direction: column; min-width: 0; }
   .d-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.4px; color: #8A7A30; font-weight: 700; }
   .d-val { font-size: 10px; color: #111; font-weight: 700; }
+  .d-note { font-size: 9px; color: #333; font-weight: 600; margin-top: 1px; word-break: break-word; }
+  .d-img { width: 34px; height: 34px; object-fit: cover; border: 1px solid #eee0a0; border-radius: 3px; margin-top: 3px; flex-shrink: 0; }
   .d-yes { color: #1a7a3a; }
   .d-card-wide .d-label { margin-bottom: 1px; }
   .d-card-wide .d-val { font-weight: 600; }

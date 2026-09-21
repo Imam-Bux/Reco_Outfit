@@ -1,47 +1,45 @@
 export interface MeasurementSnapshot {
-  length?: number;
-  shoulder?: number;
-  sleeves?: number;
-  collar?: number;
-  chest?: number;
-  waist?: number;
-  hip?: number;
-  half_chest?: number;
-  losing_chest?: number;
-  losing_waist?: number;
-  losing_hip?: number;
-  armhole?: number;
-  bicap?: number;
-  sleeve_open?: number;
-  cuff_length?: number;
-  cuff_width?: number;
-  patti_length?: number;
-  patti_width?: number;
-  sleeves_round?: number;
-  shalwar_length?: number;
-  shalwar_waist?: number;
-  shalwar_width?: number;
-  leg_opening?: number;
-  half_body_chest?: number;
+  length?: string;
+  shoulder?: string;
+  sleeves?: string;
+  collar?: string;
+  chest?: string;
+  waist?: string;
+  hip?: string;
+  takti?: string;
+  armhole?: string;
+  elbow?: string;
+  kalai?: string;
+  cuff?: string;
+  patti?: string;
+  patti_width?: string;
+  losing_chest?: string;
+  losing_hip?: string;
+  losing_waist?: string;
+  shalwar_length?: string;
+  shalwar_gair?: string;
+  asan?: string;
+  paicha?: string;
 }
 
 export interface DesignChoice {
   selected: string;
   referenceImage?: string;
+  customText?: string;
 }
 
 export interface DesignToggle {
   enabled: boolean;
   referenceImage?: string;
+  customText?: string;
 }
 
 export interface Designs {
   collar: DesignChoice;
-  front_pocket: DesignToggle;
-  side_pockets: DesignChoice;
-  shalwar_pocket: DesignToggle;
+  pockets: DesignChoice;
   daman: DesignChoice;
   cuff: DesignChoice;
+  paincha: DesignChoice;
   silk_thread: DesignToggle;
   stitching: DesignChoice;
   buttons: DesignChoice;

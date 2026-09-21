@@ -34,8 +34,8 @@ const measurementFieldKeys = MEASUREMENT_FIELDS.map(
   (f) => f.key
 ) as (keyof OrderItem['measurementSnapshot'])[];
 
-const defaultChoice = { selected: '', referenceImage: '' };
-const defaultToggle = { enabled: false, referenceImage: '' };
+const defaultChoice = { selected: '', referenceImage: '', customText: '' };
+const defaultToggle = { enabled: false, referenceImage: '', customText: '' };
 
 const normalizeMeasurementSnapshot = (existing?: Partial<OrderItem['measurementSnapshot']>) => {
   const snapshot: Record<string, string | number | undefined> = {};
@@ -54,11 +54,10 @@ export const normalizeItem = (item?: Partial<OrderItem>): OrderItem => {
     measurementSnapshot: normalizeMeasurementSnapshot(item?.measurementSnapshot),
     designs: {
       collar: { ...defaultChoice, ...designs?.collar },
-      front_pocket: { ...defaultToggle, ...designs?.front_pocket },
-      side_pockets: { ...defaultChoice, ...designs?.side_pockets },
-      shalwar_pocket: { ...defaultToggle, ...designs?.shalwar_pocket },
+      pockets: { ...defaultChoice, ...designs?.pockets },
       daman: { ...defaultChoice, ...designs?.daman },
       cuff: { ...defaultChoice, ...designs?.cuff },
+      paincha: { ...defaultChoice, ...designs?.paincha },
       silk_thread: { ...defaultToggle, ...designs?.silk_thread },
       stitching: { ...defaultChoice, ...designs?.stitching },
       buttons: { ...defaultChoice, ...designs?.buttons },
@@ -120,11 +119,10 @@ export const MEASUREMENT_CATEGORY_META = {
 
 export const DESIGN_ICONS: Record<string, ReactElement> = {
   collar: <CollarIcon width={13} height={13} strokeWidth={2} />,
-  front_pocket: <PocketIcon width={13} height={13} strokeWidth={2} />,
-  side_pockets: <PocketIcon width={13} height={13} strokeWidth={2} />,
-  shalwar_pocket: <PocketIcon width={13} height={13} strokeWidth={2} />,
+  pockets: <PocketIcon width={13} height={13} strokeWidth={2} />,
   daman: <ShirtIcon width={13} height={13} strokeWidth={2} />,
   cuff: <CuffIcon width={13} height={13} strokeWidth={2} />,
+  paincha: <PantsIcon width={13} height={13} strokeWidth={2} />,
   silk_thread: <ThreadIcon width={13} height={13} strokeWidth={2} />,
   stitching: <StitchIcon width={13} height={13} strokeWidth={2} />,
   buttons: <ButtonIcon width={13} height={13} strokeWidth={2} />,

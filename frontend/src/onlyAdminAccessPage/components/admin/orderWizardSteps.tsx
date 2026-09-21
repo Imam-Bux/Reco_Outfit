@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
+import type { FormikErrors } from 'formik';
 import { DESIGN_SECTIONS } from '../../lib/designConfig';
 import { MEASUREMENT_FIELDS, MEASUREMENT_GROUPS } from '../../lib/measurementConfig';
 import { Customer, OrderItem } from '../../lib/types';
@@ -205,16 +206,18 @@ function MeasurementsStep({ values }: { values: OrderFormValues }) {
                     {fields.map((m) => (
                       <div key={String(m.key)}>
                         <label className="text-secondary-800 text-[11px] font-medium mb-1 block">
-                          {m.label}
+                          {m.label} <span className="text-red-500">*</span>
                         </label>
                         <Field
                           type="text"
-                          inputMode="decimal"
-                          pattern="^\s*(\d+(\.\d+)?(\s+\d+/\d+)?|\d+/\d+)?\s*$"
-                          title="Enter a decimal or fraction, e.g. 12 or 12 1/2"
-                          placeholder="e.g. 12 or 12 1/2"
+                          placeholder="e.g. 12.5"
                           name={`items.${index}.measurementSnapshot.${m.key}`}
-                          className="w-full bg-white border border-secondary-300 focus:border-primary-500 focus:ring-primary-500/30 rounded-lg px-3 py-2 text-secondary-900 text-[11px] placeholder:text-secondary-400 shadow-sm invalid:border-red-400 invalid:focus:border-red-400"
+                          className="w-full bg-white border border-secondary-300 focus:border-primary-500 focus:ring-primary-500/30 rounded-lg px-3 py-2 text-secondary-900 text-[11px] placeholder:text-secondary-400 shadow-sm"
+                        />
+                        <ErrorMessage
+                          name={`items.${index}.measurementSnapshot.${m.key}`}
+                          component="p"
+                          className="text-red-600 text-[10px] mt-1"
                         />
                       </div>
                     ))}
@@ -259,6 +262,7 @@ function DesignsStep({
                 key={section.key}
                 section={section}
                 namePrefix={`items.${index}.designs.${section.key}`}
+                token={token}
               />
             ))}
           </div>
@@ -268,7 +272,14 @@ function DesignsStep({
   );
 }
 
-function PaymentStep({ values }: { values: OrderFormValues }) {
+function PaymentStep({
+  values,
+  errors,
+}: {
+  values: OrderFormValues;
+  errors: FormikErrors<OrderFormValues>;
+}) {
+  const hasItemErrors = Array.isArray(errors.items);
   return (
     <section className="space-y-6">
       <h3 className="text-secondary-900 font-heading font-bold text-[11px]">Payment & Confirm</h3>
@@ -319,6 +330,11 @@ function PaymentStep({ values }: { values: OrderFormValues }) {
           ) : null
         }
       </ErrorMessage>
+      {hasItemErrors && (
+        <p className="text-red-600 text-[11px]">
+          Some required fields are missing. Please check the Measurements and Designs steps.
+        </p>
+      )}
     </section>
   );
 }
@@ -326,12 +342,14 @@ function PaymentStep({ values }: { values: OrderFormValues }) {
 export default function OrderWizardSteps({
   formStep,
   values,
+  errors,
   setFieldValue,
   customers,
   token,
 }: {
   formStep: number;
   values: OrderFormValues;
+  errors: FormikErrors<OrderFormValues>;
   setFieldValue: (field: string, value: unknown) => void;
   customers: Customer[];
   token: string | null;
@@ -340,5 +358,5 @@ export default function OrderWizardSteps({
   if (formStep === 1) return <OrderItemsStep values={values} />;
   if (formStep === 2) return <MeasurementsStep values={values} />;
   if (formStep === 3) return <DesignsStep values={values} setFieldValue={setFieldValue} token={token} />;
-  return <PaymentStep values={values} />;
+  return <PaymentStep values={values} errors={errors} />;
 }

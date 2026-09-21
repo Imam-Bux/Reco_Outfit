@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { parseDecimalInput } from './measurementConfig';
 
 const PHONE_REGEX = /^(?=.*\d)[0-9+\-\s]{7,15}$/;
 
@@ -19,19 +18,18 @@ export const customerValidationSchema = Yup.object({
 
 export const measurementValueSchema = Yup.string()
   .transform((value: unknown) => {
-    if (value === null || value === undefined) return undefined;
+    if (value === null || value === undefined) return '';
     if (typeof value === 'number') {
-      return Number.isFinite(value) ? String(value) : undefined;
+      return Number.isFinite(value) ? String(value) : '';
     }
-    const raw = String(value).trim();
-    if (raw === '') return undefined;
-    return parseDecimalInput(raw) !== undefined ? raw : undefined;
+    return String(value);
   })
-  .test('valid-measurement', 'Enter a valid number or fraction', (value) => {
-    return value === undefined || value === '' || parseDecimalInput(value) !== undefined;
-  })
-  .min(0, 'Cannot be negative')
-  .notRequired();
+  .required('Required')
+  .test(
+    'valid-measurement',
+    'Enter a letter or number (e.g. 12, 12.5 or 12S)',
+    (value) => value === undefined || String(value).trim() !== ''
+  );
 
 export const measurementSnapshotValidationSchema = Yup.object({
   length: measurementValueSchema,
@@ -41,42 +39,48 @@ export const measurementSnapshotValidationSchema = Yup.object({
   chest: measurementValueSchema,
   waist: measurementValueSchema,
   hip: measurementValueSchema,
-  half_chest: measurementValueSchema,
-  losing_chest: measurementValueSchema,
-  losing_waist: measurementValueSchema,
-  losing_hip: measurementValueSchema,
+  takti: measurementValueSchema,
   armhole: measurementValueSchema,
-  bicap: measurementValueSchema,
-  sleeve_open: measurementValueSchema,
-  cuff_length: measurementValueSchema,
-  cuff_width: measurementValueSchema,
-  patti_length: measurementValueSchema,
+  elbow: measurementValueSchema,
+  kalai: measurementValueSchema,
+  cuff: measurementValueSchema,
+  patti: measurementValueSchema,
   patti_width: measurementValueSchema,
-  sleeves_round: measurementValueSchema,
+  losing_chest: measurementValueSchema,
+  losing_hip: measurementValueSchema,
+  losing_waist: measurementValueSchema,
   shalwar_length: measurementValueSchema,
-  shalwar_waist: measurementValueSchema,
-  shalwar_width: measurementValueSchema,
-  leg_opening: measurementValueSchema,
-  half_body_chest: measurementValueSchema,
+  shalwar_gair: measurementValueSchema,
+  asan: measurementValueSchema,
+  paicha: measurementValueSchema,
 });
 
 const choiceSectionSchema = Yup.object({
-  selected: Yup.string().notRequired(),
+  selected: Yup.string().trim().required('Please select an option'),
   referenceImage: Yup.string().notRequired(),
-});
+  customText: Yup.string().notRequired(),
+}).test(
+  'custom-detail',
+  'Add custom text or an image',
+  (value) => {
+    const detail = value as { selected?: string; customText?: string; referenceImage?: string };
+    if (detail?.selected !== 'Custom') return true;
+    return Boolean(detail.customText?.trim() || detail.referenceImage);
+  }
+);
 
 const toggleSectionSchema = Yup.object({
   enabled: Yup.boolean().notRequired(),
   referenceImage: Yup.string().notRequired(),
+  customText: Yup.string().notRequired(),
 });
 
 export const designsValidationSchema = Yup.object({
   collar: choiceSectionSchema,
-  front_pocket: toggleSectionSchema,
-  side_pockets: choiceSectionSchema,
-  shalwar_pocket: toggleSectionSchema,
+  pockets: choiceSectionSchema,
   daman: choiceSectionSchema,
   cuff: choiceSectionSchema,
+  paincha: choiceSectionSchema,
   silk_thread: toggleSectionSchema,
   stitching: choiceSectionSchema,
   buttons: choiceSectionSchema,

@@ -23,57 +23,51 @@ export type DesignSection = DesignChoiceSection | DesignToggleSection;
 
 export const PLACEHOLDER_IMAGE = '/designs/placeholder.svg';
 
+const option = (value: string): DesignChoiceOption => ({ value, image: PLACEHOLDER_IMAGE });
+
 export const DESIGN_SECTIONS: DesignSection[] = [
   {
     type: 'choice',
     key: 'collar',
     label: 'Collar',
     options: [
-      { value: 'Ben', image: '/designs/ben.svg' },
-      { value: 'Half Ben', image: '/designs/half-ben.svg' },
-      { value: 'Collar', image: '/designs/collar.svg' },
-      { value: 'French Collar', image: '/designs/french-collar.svg' },
+      option('Sherwani Collar'),
+      option('Kammez Collar'),
+      option('Non-Collar'),
+      option('Custom'),
     ],
-  },
-  {
-    type: 'toggle',
-    key: 'front_pocket',
-    label: 'Front Pocket',
-    image: '/designs/front-pocket.svg',
   },
   {
     type: 'choice',
-    key: 'side_pockets',
-    label: 'Side Pockets',
+    key: 'pockets',
+    label: 'Pockets',
     options: [
-      { value: 'Single Side Pocket', image: '/designs/single-side-pocket.svg' },
-      { value: 'Double Side Pocket', image: '/designs/double-side-pocket.svg' },
+      option('1 Front'),
+      option('2 Front'),
+      option('1 Side'),
+      option('2 Side'),
+      option('Shalwar Pockets'),
+      option('Kali Pocket'),
+      option('Custom'),
     ],
-  },
-  {
-    type: 'toggle',
-    key: 'shalwar_pocket',
-    label: 'Shalwar Pocket',
-    image: '/designs/shalwar-pocket.svg',
   },
   {
     type: 'choice',
     key: 'daman',
     label: 'Daman',
-    options: [
-      { value: 'Round Daman', image: '/designs/round-daman.svg' },
-      { value: 'Square Daman', image: '/designs/square-daman.svg' },
-    ],
+    options: [option('Gol'), option('Square'), option('Custom')],
   },
   {
     type: 'choice',
     key: 'cuff',
     label: 'Cuff',
-    options: [
-      { value: 'Simple Cuff', image: '/designs/simple-cuff.svg' },
-      { value: 'Simple Round Cuff', image: '/designs/simple-round-cuff.svg' },
-      { value: 'Simple Sleeve', image: '/designs/simple-sleeve.svg' },
-    ],
+    options: [option('Square'), option('Round'), option('Double'), option('Custom')],
+  },
+  {
+    type: 'choice',
+    key: 'paincha',
+    label: 'Paincha',
+    options: [option('Katti'), option('Custom')],
   },
   {
     type: 'toggle',
@@ -86,9 +80,10 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     key: 'stitching',
     label: 'Stitching',
     options: [
-      { value: 'Single Stitching', image: '/designs/single-stitching.svg' },
-      { value: 'Double Stitching', image: '/designs/double-stitching.svg' },
-      { value: 'Triple Stitching', image: '/designs/triple-stitching.svg' },
+      option('Single Stitching'),
+      option('Double Stitching'),
+      option('Triple Stitching'),
+      option('Custom'),
     ],
   },
   {
@@ -96,9 +91,10 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     key: 'buttons',
     label: 'Buttons',
     options: [
-      { value: 'Normal Button', image: '/designs/normal-button.svg' },
-      { value: 'Fancy Button', image: '/designs/fancy-button.svg' },
-      { value: 'Tich Button', image: '/designs/tich-button.svg' },
+      option('Normal Button'),
+      option('Fancy Button'),
+      option('Tich Button'),
+      option('Custom'),
     ],
   },
   {
@@ -106,8 +102,9 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     key: 'buttonhole',
     label: 'Buttonhole',
     options: [
-      { value: 'Normal Buttonhole', image: '/designs/normal-buttonhole.svg' },
-      { value: 'Threaded Buttonhole', image: '/designs/threaded-buttonhole.svg' },
+      option('Normal Buttonhole'),
+      option('Threaded Buttonhole'),
+      option('Custom'),
     ],
   },
   {
@@ -120,10 +117,7 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     type: 'choice',
     key: 'sleeve_pleat',
     label: 'Sleeve Pleat',
-    options: [
-      { value: 'Sleeve Pleat', image: '/designs/sleeve-pleat.svg' },
-      { value: 'No Pleat', image: '/designs/no-pleat.svg' },
-    ],
+    options: [option('Sleeve Pleat'), option('No Pleat'), option('Custom')],
   },
   {
     type: 'toggle',
@@ -136,9 +130,10 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     key: 'shalwar_type',
     label: 'Shalwar Type',
     options: [
-      { value: 'Normal Shalwar', image: '/designs/normal-shalwar.svg' },
-      { value: 'Trouser Shalwar', image: '/designs/trouser-shalwar.svg' },
-      { value: 'Balochi Shalwar', image: '/designs/balochi-shalwar.svg' },
+      option('Normal Shalwar'),
+      option('Trouser Shalwar'),
+      option('Balochi Shalwar'),
+      option('Custom'),
     ],
   },
   {
@@ -148,3 +143,5 @@ export const DESIGN_SECTIONS: DesignSection[] = [
     image: '/designs/netted-leg-opening.svg',
   },
 ];
+
+export const isCustomOption = (value: string) => value === 'Custom';

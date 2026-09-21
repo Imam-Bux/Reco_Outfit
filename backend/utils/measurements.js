@@ -1,28 +1,26 @@
-const DECIMAL_REGEX = /^\d+(\.\d+)?$/;
-
 export const MEASUREMENT_KEYS = [
   'length', 'shoulder', 'sleeves', 'collar', 'chest', 'waist', 'hip',
-  'half_chest', 'losing_chest', 'losing_waist', 'losing_hip', 'armhole',
-  'bicap', 'sleeve_open', 'cuff_length', 'cuff_width', 'patti_length',
-  'patti_width', 'sleeves_round', 'shalwar_length', 'shalwar_waist',
-  'shalwar_width', 'leg_opening', 'half_body_chest',
+  'takti', 'armhole', 'elbow', 'kalai', 'cuff', 'patti', 'patti_width',
+  'losing_chest', 'losing_hip', 'losing_waist',
+  'shalwar_length', 'shalwar_gair', 'asan', 'paicha',
 ];
 
 export const DESIGN_CHOICE_OPTIONS = {
-  collar: ['Ben', 'Half Ben', 'Collar', 'French Collar'],
-  side_pockets: ['Single Side Pocket', 'Double Side Pocket'],
-  daman: ['Round Daman', 'Square Daman'],
-  cuff: ['Simple Cuff', 'Simple Round Cuff', 'Simple Sleeve'],
-  stitching: ['Single Stitching', 'Double Stitching', 'Triple Stitching'],
-  buttons: ['Normal Button', 'Fancy Button', 'Tich Button'],
-  buttonhole: ['Normal Buttonhole', 'Threaded Buttonhole'],
-  sleeve_pleat: ['Sleeve Pleat', 'No Pleat'],
-  shalwar_type: ['Normal Shalwar', 'Trouser Shalwar', 'Balochi Shalwar'],
+  collar: ['Sherwani Collar', 'Kammez Collar', 'Non-Collar', 'Custom'],
+  pockets: [
+    '1 Front', '2 Front', '1 Side', '2 Side', 'Shalwar Pockets', 'Kali Pocket', 'Custom',
+  ],
+  daman: ['Gol', 'Square', 'Custom'],
+  cuff: ['Square', 'Round', 'Double', 'Custom'],
+  paincha: ['Katti', 'Custom'],
+  stitching: ['Single Stitching', 'Double Stitching', 'Triple Stitching', 'Custom'],
+  buttons: ['Normal Button', 'Fancy Button', 'Tich Button', 'Custom'],
+  buttonhole: ['Normal Buttonhole', 'Threaded Buttonhole', 'Custom'],
+  sleeve_pleat: ['Sleeve Pleat', 'No Pleat', 'Custom'],
+  shalwar_type: ['Normal Shalwar', 'Trouser Shalwar', 'Balochi Shalwar', 'Custom'],
 };
 
 export const DESIGN_TOGGLE_KEYS = [
-  'front_pocket',
-  'shalwar_pocket',
   'silk_thread',
   'designer_suit',
   'hidden_placket',
@@ -51,7 +49,7 @@ export const parseDecimal = (input) => {
     return denominator ? Number(fraction[1]) / denominator : undefined;
   }
 
-  if (!DECIMAL_REGEX.test(cleaned)) return undefined;
+  if (!/^\d+(\.\d+)?$/.test(cleaned)) return undefined;
   const value = Number(cleaned);
   return Number.isFinite(value) ? value : undefined;
 };
@@ -69,7 +67,6 @@ export const sanitizeMeasurementSnapshot = (snapshot) => {
     if (!(key in snapshot)) continue;
     const raw = String(snapshot[key] ?? '').trim();
     if (raw === '') continue;
-    if (parseDecimal(raw) === undefined) continue;
     result[key] = raw;
   }
   return result;
@@ -85,6 +82,7 @@ export const sanitizeDesigns = (designs) => {
     result[key] = {
       selected: DESIGN_CHOICE_OPTIONS[key].includes(selected) ? selected : '',
       referenceImage: sanitizeImageUrl(section.referenceImage),
+      customText: String(section.customText ?? '').trim(),
     };
   }
 
@@ -93,6 +91,7 @@ export const sanitizeDesigns = (designs) => {
     result[key] = {
       enabled: Boolean(section.enabled),
       referenceImage: sanitizeImageUrl(section.referenceImage),
+      customText: String(section.customText ?? '').trim(),
     };
   }
 

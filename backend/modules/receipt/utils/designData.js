@@ -1,37 +1,33 @@
 export const MEASUREMENT_LABELS = {
-  length: 'Lent (Length)',
+  length: 'Length',
   shoulder: 'Shoulder',
   sleeves: 'Sleeves',
-  collar: 'Collar Size',
+  collar: 'Collar',
   chest: 'Chest',
-  waist: 'Waist',
+  waist: 'Waist (Kamar)',
   hip: 'Hip',
-  half_chest: 'Half Chest',
-  losing_chest: 'Losing (Chest)',
-  losing_waist: 'Losing (Waist)',
-  losing_hip: 'Losing (Hip)',
-  armhole: 'Armhole',
-  bicap: 'Bicap (Bicep)',
-  sleeve_open: 'Sleeve Open',
-  cuff_length: 'Cuff Length',
-  cuff_width: 'Cuff Width',
-  patti_length: 'Patti Length',
+  takti: 'Takti',
+  armhole: 'Arm Hole',
+  elbow: 'Elbow (Bicep)',
+  kalai: 'Kalai (Sleeve Open)',
+  cuff: 'Cuff',
+  patti: 'Patti',
   patti_width: 'Patti Width',
-  sleeves_round: 'Sleeves Round',
+  losing_chest: 'Losing Chest',
+  losing_hip: 'Losing Hip',
+  losing_waist: 'Losing Waist',
   shalwar_length: 'Shalwar Length',
-  shalwar_waist: 'Shalwar Waist',
-  shalwar_width: 'Shalwar Width',
-  leg_opening: 'Leg Opening',
-  half_body_chest: 'Half Body Chest',
+  shalwar_gair: 'Shalwar Gair',
+  asan: 'Asan (Shalwar Width)',
+  paicha: 'Paicha (Leg Opening)',
 };
 
 export const DESIGN_SECTIONS = {
   collar: { label: 'Collar', type: 'choice' },
-  front_pocket: { label: 'Front Pocket', type: 'toggle' },
-  side_pockets: { label: 'Side Pockets', type: 'choice' },
-  shalwar_pocket: { label: 'Shalwar Pocket', type: 'toggle' },
+  pockets: { label: 'Pockets', type: 'choice' },
   daman: { label: 'Daman', type: 'choice' },
   cuff: { label: 'Cuff', type: 'choice' },
+  paincha: { label: 'Paincha', type: 'choice' },
   silk_thread: { label: 'Silk Thread', type: 'toggle' },
   stitching: { label: 'Stitching', type: 'choice' },
   buttons: { label: 'Buttons', type: 'choice' },
@@ -50,6 +46,9 @@ export const buildDesignText = (design, section) => {
     if (design.enabled === true || design.enabled === 'true') parts.push('Yes');
   } else if (design.selected) {
     parts.push(design.selected);
+  }
+  if (design.customText && String(design.customText).trim()) {
+    parts.push(String(design.customText).trim());
   }
   if (parts.length === 0) return null;
   return parts;

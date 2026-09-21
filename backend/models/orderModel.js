@@ -4,6 +4,7 @@ const choiceSectionSchema = new mongoose.Schema(
   {
     selected: { type: String, default: '' },
     referenceImage: { type: String, default: '' },
+    customText: { type: String, default: '' },
   },
   { _id: false }
 );
@@ -12,6 +13,7 @@ const toggleSectionSchema = new mongoose.Schema(
   {
     enabled: { type: Boolean, default: false },
     referenceImage: { type: String, default: '' },
+    customText: { type: String, default: '' },
   },
   { _id: false }
 );
@@ -19,11 +21,10 @@ const toggleSectionSchema = new mongoose.Schema(
 const designsSchema = new mongoose.Schema(
   {
     collar: choiceSectionSchema,
-    front_pocket: toggleSectionSchema,
-    side_pockets: choiceSectionSchema,
-    shalwar_pocket: toggleSectionSchema,
+    pockets: choiceSectionSchema,
     daman: choiceSectionSchema,
     cuff: choiceSectionSchema,
+    paincha: choiceSectionSchema,
     silk_thread: toggleSectionSchema,
     stitching: choiceSectionSchema,
     buttons: choiceSectionSchema,
@@ -46,23 +47,20 @@ const measurementSnapshotSchema = new mongoose.Schema(
     chest: String,
     waist: String,
     hip: String,
-    half_chest: String,
-    losing_chest: String,
-    losing_waist: String,
-    losing_hip: String,
+    takti: String,
     armhole: String,
-    bicap: String,
-    sleeve_open: String,
-    cuff_length: String,
-    cuff_width: String,
-    patti_length: String,
+    elbow: String,
+    kalai: String,
+    cuff: String,
+    patti: String,
     patti_width: String,
-    sleeves_round: String,
+    losing_chest: String,
+    losing_hip: String,
+    losing_waist: String,
     shalwar_length: String,
-    shalwar_waist: String,
-    shalwar_width: String,
-    leg_opening: String,
-    half_body_chest: String,
+    shalwar_gair: String,
+    asan: String,
+    paicha: String,
   },
   { _id: false }
 );

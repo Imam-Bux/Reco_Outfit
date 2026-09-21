@@ -29,6 +29,21 @@ export const DESIGN_ICONS = {
   'Trouser Shalwar': '<path d="M9 2h6l.6 20h-2.2l-.9-14-.9 14H9.4L9 2z"/>',
   'Balochi Shalwar': '<path d="M6 2h12l-1.5 8c1 1 1.5 2.4 1.5 4l-1 8h-2.4l-.6-9-.6 9h-3l-.6-9-.6 9H6.5l-1-8c0-1.6.5-3 1.5-4L6 2z" stroke-width="1.4"/>',
   'Netted Leg Opening': '<path d="M9 2h6l.8 15h-7.6L9 2z"/><path d="M8.4 17h7.2M8.7 19h6.6M9 21h6" stroke-width="1.3"/>',
+  'Sherwani Collar': '<path d="M8 4L12 7l4-3"/><path d="M8 11.5h8"/><path d="M9 4v7.8l-3 8.2h12l-3-8.2V4"/><path d="M5 20h14"/>',
+  'Kammez Collar': '<path d="M6 5l6 4.5L18 5"/><path d="M12 9.5V19"/><path d="M5 5h14" stroke-width="1.1"/>',
+  'Non-Collar': '<path d="M5 4h14" stroke-width="1.1"/><path d="M5 4l1.5 9h11l1.5-9"/><path d="M8 13v8"/>',
+  '1 Front': '<path d="M7 6.5h10"/><path d="M5 6.5h14" stroke-width="1.1"/><path d="M3 8v6l3 4h12l3-4V8"/>',
+  '2 Front': '<path d="M5 6.5h6M13 6.5h6"/><path d="M3 8v4.5l3 3.5h12l3-3.5V8"/><path d="M11 8.5v8" stroke-width="1.1"/>',
+  '1 Side': '<path d="M5 5v14" stroke-width="1.1"/><path d="M5 7h14" stroke-width="1.1"/><path d="M15 7l4 4-4 3.5"/><path d="M19 7V4"/>',
+  '2 Side': '<path d="M5 5v14" stroke-width="1.1"/><path d="M5 7h14" stroke-width="1.1"/><path d="M15 7l4 4-4 3.5"/><path d="M3 5V3M19 7V4"/>',
+  'Shalwar Pockets': '<path d="M9 3v14"/><path d="M9 3h3.5c1.5 0 2.5 1 2.5 2.5V8l2 2-2 2v5"/>',
+  'Kali Pocket': '<path d="M12 4v16" stroke-width="1.1"/><path d="M12 6c-2.5-1-5-2.5-7-5" stroke-width="1.1"/><path d="M12 10c-2.5-1-5-2.5-7-5" stroke-width="1.1"/><path d="M12 14c-2.5-1-5-2.5-7-5" stroke-width="1.1"/>',
+  Gol: '<path d="M6 3v11c0 3.5 2.5 6.5 6 7 3.5-.5 6-3.5 6-7V3"/><path d="M6 14a6 6 0 0112 0"/>',
+  Square: '<path d="M6 3v12c0 2.5 1 4 2 5h8c1-1 2-2.5 2-5V3"/><path d="M6 15h12"/>',
+  Round: '<path d="M4 18a8 8 0 0116 0"/><path d="M8 18h8"/><path d="M4 18H2M22 18h-2"/>',
+  Double: '<path d="M4 8h16"/><path d="M4 16h16"/><path d="M4 8v8M20 8v8"/>',
+  Katti: '<path d="M6 3v13c0 1.5 1 2.5 2.5 2.5h7c1.5 0 2.5-1 2.5-2.5V3"/><path d="M9.5 3v15.5" stroke-width="1.2"/>',
+  Custom: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M4 9v2h16M9 4v6M15 4v10"/><path d="M4 9h16" stroke-width="1.1"/>',
 };
 
 export const designIconSvg = (name) => {

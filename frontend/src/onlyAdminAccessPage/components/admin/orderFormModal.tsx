@@ -71,7 +71,7 @@ export default function OrderFormModal({
             }
           }}
         >
-          {({ values, isSubmitting, setFieldValue }) => (
+          {({ values, errors, isSubmitting, setFieldValue }) => (
             <Form className="flex flex-col flex-1 min-h-0 neon-fields">
               <div className="shrink-0 px-4 sm:px-6 pt-5 pb-3 border-b border-secondary-200" aria-label="Order form steps">
                 <ol className="flex items-center gap-1 overflow-x-auto pb-1">
@@ -121,6 +121,7 @@ export default function OrderFormModal({
                 <OrderWizardSteps
                   formStep={formStep}
                   values={values}
+                  errors={errors}
                   setFieldValue={setFieldValue}
                   customers={customers}
                   token={token}

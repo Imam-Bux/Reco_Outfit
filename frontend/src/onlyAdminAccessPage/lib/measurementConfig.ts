@@ -1,50 +1,43 @@
 export interface MeasurementFieldConfig {
   key: string;
   label: string;
-  type: 'number';
-  inputType: 'decimal';
-  step: 'any';
+  type: 'text';
   category: 'top' | 'shalwar' | 'allowance';
 }
 
 export const MEASUREMENT_FIELDS: MeasurementFieldConfig[] = [
-  { key: 'length', label: 'Lent (Length)', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'shoulder', label: 'Shoulder', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'sleeves', label: 'Sleeves', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'collar', label: 'Collar Size', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'chest', label: 'Chest', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'waist', label: 'Waist', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'hip', label: 'Hip', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'half_chest', label: 'Half Chest', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'losing_chest', label: 'Losing (Chest Loose Allowance)', type: 'number', inputType: 'decimal', step: 'any', category: 'allowance' },
-  { key: 'losing_waist', label: 'Losing (Waist Loose Allowance)', type: 'number', inputType: 'decimal', step: 'any', category: 'allowance' },
-  { key: 'losing_hip', label: 'Losing (Hip Loose Allowance)', type: 'number', inputType: 'decimal', step: 'any', category: 'allowance' },
-  { key: 'armhole', label: 'Armhole', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'bicap', label: 'Bicap (Bicep)', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'sleeve_open', label: 'Sleeve Open', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'cuff_length', label: 'Cuff Length', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'cuff_width', label: 'Cuff Width', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'patti_length', label: 'Patti Length', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'patti_width', label: 'Patti Width', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'sleeves_round', label: 'Sleeves Round', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'half_body_chest', label: 'Half Body Chest', type: 'number', inputType: 'decimal', step: 'any', category: 'top' },
-  { key: 'shalwar_length', label: 'Shalwar Length', type: 'number', inputType: 'decimal', step: 'any', category: 'shalwar' },
-  { key: 'shalwar_waist', label: 'Shalwar Waist', type: 'number', inputType: 'decimal', step: 'any', category: 'shalwar' },
-  { key: 'shalwar_width', label: 'Shalwar Width', type: 'number', inputType: 'decimal', step: 'any', category: 'shalwar' },
-  { key: 'leg_opening', label: 'Leg Opening', type: 'number', inputType: 'decimal', step: 'any', category: 'shalwar' },
+  { key: 'length', label: 'Length', type: 'text', category: 'top' },
+  { key: 'shoulder', label: 'Shoulder', type: 'text', category: 'top' },
+  { key: 'sleeves', label: 'Sleeves', type: 'text', category: 'top' },
+  { key: 'collar', label: 'Collar', type: 'text', category: 'top' },
+  { key: 'chest', label: 'Chest', type: 'text', category: 'top' },
+  { key: 'waist', label: 'Waist (Kamar)', type: 'text', category: 'top' },
+  { key: 'hip', label: 'Hip', type: 'text', category: 'top' },
+  { key: 'takti', label: 'Takti', type: 'text', category: 'top' },
+  { key: 'armhole', label: 'Arm Hole', type: 'text', category: 'top' },
+  { key: 'elbow', label: 'Elbow (Bicep)', type: 'text', category: 'top' },
+  { key: 'kalai', label: 'Kalai (Sleeve Open)', type: 'text', category: 'top' },
+  { key: 'cuff', label: 'Cuff', type: 'text', category: 'top' },
+  { key: 'patti', label: 'Patti', type: 'text', category: 'top' },
+  { key: 'patti_width', label: 'Patti Width', type: 'text', category: 'top' },
+  { key: 'losing_chest', label: 'Losing Chest', type: 'text', category: 'allowance' },
+  { key: 'losing_hip', label: 'Losing Hip', type: 'text', category: 'allowance' },
+  { key: 'losing_waist', label: 'Losing Waist', type: 'text', category: 'allowance' },
+  { key: 'shalwar_length', label: 'Shalwar Length', type: 'text', category: 'shalwar' },
+  { key: 'shalwar_gair', label: 'Shalwar Gair', type: 'text', category: 'shalwar' },
+  { key: 'asan', label: 'Asan (Shalwar Width)', type: 'text', category: 'shalwar' },
+  { key: 'paicha', label: 'Paicha (Leg Opening)', type: 'text', category: 'shalwar' },
 ];
 
 export const MEASUREMENT_GROUPS: { key: 'top' | 'shalwar' | 'allowance'; title: string }[] = [
   { key: 'top', title: 'Upper Garment' },
-  { key: 'shalwar', title: 'Shalwar / Lower' },
   { key: 'allowance', title: 'Loose Allowance' },
+  { key: 'shalwar', title: 'Shalwar / Lower' },
 ];
 
 export const MEASUREMENT_KEYS: string[] = MEASUREMENT_FIELDS.map((f) => f.key);
 
-export const DECIMAL_REGEX = /^\d+(\.\d+)?$/;
-
-export type MeasurementSnapshotValue = Record<string, number | string>;
+export type MeasurementSnapshotValue = Record<string, string>;
 
 export function parseDecimalInput(input: unknown): number | undefined {
   if (input === null || input === undefined || input === '') return undefined;
@@ -69,7 +62,7 @@ export function parseDecimalInput(input: unknown): number | undefined {
     return denominator ? numerator / denominator : undefined;
   }
 
-  if (!DECIMAL_REGEX.test(cleaned)) return undefined;
+  if (!/^\d+(\.\d+)?$/.test(cleaned)) return undefined;
   const value = Number(cleaned);
   return Number.isFinite(value) ? value : undefined;
 }
@@ -82,7 +75,7 @@ export function sanitizeMeasurementSnapshot(
   for (const key of MEASUREMENT_KEYS) {
     if (!(key in snapshot)) continue;
     const raw = String(snapshot[key] ?? '').trim();
-    if (raw === '' || parseDecimalInput(raw) === undefined) continue;
+    if (raw === '') continue;
     result[key] = raw;
   }
   return result;

@@ -5,11 +5,42 @@ import { Designs, Order, OrderItem } from '../../lib/types';
 import StatusBadge from './statusBadge';
 import { DESIGN_ICONS } from './orderConstants';
 
+function CustomDetail({
+  referenceImage,
+  customText,
+}: {
+  referenceImage?: string;
+  customText?: string;
+}) {
+  const hasImage = Boolean(referenceImage);
+  const hasText = Boolean(customText && customText.trim());
+  if (!hasImage && !hasText) return null;
+  return (
+    <div className="mt-1.5 space-y-1.5">
+      {hasText && <span className="text-secondary-700 whitespace-pre-wrap break-words">{customText}</span>}
+      {hasImage && (
+        <a
+          href={referenceImage}
+          target="_blank"
+          rel="noreferrer"
+          className="block w-16 h-16 aspect-square overflow-hidden rounded-lg border border-secondary-200 bg-secondary-100"
+        >
+          <img
+            src={referenceImage}
+            alt="Custom design reference"
+            className="w-full h-full object-cover hover:scale-105 transition"
+          />
+        </a>
+      )}
+    </div>
+  );
+}
+
 function renderDesigns(designs: Designs | undefined) {
   if (!designs) return [];
   return DESIGN_SECTIONS.map((section) => {
     const value = designs[section.key] as
-      | { selected?: string; enabled?: boolean }
+      | { selected?: string; enabled?: boolean; referenceImage?: string; customText?: string }
       | undefined;
     if (!value) return null;
 
@@ -25,6 +56,7 @@ function renderDesigns(designs: Designs | undefined) {
             <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[section.label as keyof typeof DESIGN_OPTION_ICONS]}</span>
             <span className="text-secondary-700">Yes</span>
           </div>
+          <CustomDetail referenceImage={value.referenceImage} customText={value.customText} />
         </div>
       );
     }
@@ -41,6 +73,7 @@ function renderDesigns(designs: Designs | undefined) {
           <span className="text-primary-600 shrink-0">{DESIGN_OPTION_ICONS[option.value as keyof typeof DESIGN_OPTION_ICONS]}</span>
           <span className="text-secondary-700">{value.selected}</span>
         </div>
+        <CustomDetail referenceImage={value.referenceImage} customText={value.customText} />
       </div>
     );
   });

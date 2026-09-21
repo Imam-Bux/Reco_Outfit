@@ -27,112 +27,127 @@ function OptIcon({
 }
 
 type DesignOptionKey =
-  | 'Ben' | 'Half Ben' | 'Collar' | 'French Collar'
-  | 'Front Pocket'
-  | 'Single Side Pocket' | 'Double Side Pocket'
-  | 'Shalwar Pocket'
-  | 'Round Daman' | 'Square Daman'
-  | 'Simple Cuff' | 'Simple Round Cuff' | 'Simple Sleeve'
+  | 'Sherwani Collar' | 'Kammez Collar' | 'Non-Collar'
+  | '1 Front' | '2 Front' | '1 Side' | '2 Side' | 'Shalwar Pockets' | 'Kali Pocket'
+  | 'Gol' | 'Square' | 'Round' | 'Double' | 'Katti'
+  | 'Custom'
   | 'Silk Thread'
+  | 'Designer Suit'
+  | 'Hidden Placket'
+  | 'Netted Leg Opening'
   | 'Single Stitching' | 'Double Stitching' | 'Triple Stitching'
   | 'Normal Button' | 'Fancy Button' | 'Tich Button'
   | 'Normal Buttonhole' | 'Threaded Buttonhole'
-  | 'Designer Suit'
   | 'Sleeve Pleat' | 'No Pleat'
-  | 'Hidden Placket'
-  | 'Normal Shalwar' | 'Trouser Shalwar' | 'Balochi Shalwar'
-  | 'Netted Leg Opening';
+  | 'Normal Shalwar' | 'Trouser Shalwar' | 'Balochi Shalwar';
 
 export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
-  Ben: (
+  'Sherwani Collar': (
     <OptIcon>
-      <path d="M4 8c0-2.2 3.6-4 8-4s8 1.8 8 4" />
-      <rect x="9.5" y="6.2" width="5" height="3.6" rx="0.6" />
-      <path d="M4 8v1.6M20 8v1.6" />
+      <path d="M8 4L12 7l4-3" strokeLinejoin="round" />
+      <path d="M8 11.5h8" />
+      <path d="M9 4v7.8l-3 8.2h12l-3-8.2V4" strokeLinejoin="round" />
+      <path d="M5 20h14" />
     </OptIcon>
   ),
-  'Half Ben': (
+  'Kammez Collar': (
     <OptIcon>
-      <path d="M6 6c3-2.2 9-2.2 12 0" />
-      <path d="M10.5 6.6l1 3.2h1l1-3.2" strokeLinejoin="round" />
-      <path d="M12 9.8v9.4" />
+      <path d="M6 5l6 4.5L18 5" strokeLinejoin="round" />
+      <path d="M12 9.5V19" />
+      <path d="M5 5h14" strokeWidth="1.1" />
     </OptIcon>
   ),
-  Collar: (
+  'Non-Collar': (
     <OptIcon>
-      <path d="M4 6l8 6 8-6" strokeLinejoin="round" strokeLinecap="round" />
-      <path d="M4 6l3.2-2.4M20 6l-3.2-2.4" />
-      <path d="M12 12v7.4" />
-    </OptIcon>
-  ),
-  'French Collar': (
-    <OptIcon>
-      <path d="M6 4.5L11 9l1-1.6 1 1.6 5-4.5" strokeLinejoin="round" strokeLinecap="round" />
-      <path d="M6 4.5C4.5 8 4 13 5 20h14c1-7 .5-12-1-15.5" strokeLinejoin="round" />
-      <circle cx="12" cy="13" r="0.9" fill="currentColor" />
-      <circle cx="12" cy="17" r="0.9" fill="currentColor" />
+      <path d="M5 4h14" strokeWidth="1.1" />
+      <path d="M5 4l1.5 9h11l1.5-9" strokeLinejoin="round" />
+      <path d="M8 13v8" />
     </OptIcon>
   ),
 
-  'Front Pocket': (
+  '1 Front': (
     <OptIcon>
-      <path d="M5 5h14v8.5c0 3-3.1 5.5-7 5.5s-7-2.5-7-5.5V5z" strokeLinejoin="round" />
-      <path d="M5 9h14" strokeDasharray="1.6 1.6" />
+      <path d="M7 6.5h10" />
+      <path d="M5 6.5h14" strokeWidth="1.1" />
+      <path d="M3 8v6l3 4h12l3-4V8" strokeLinejoin="round" />
+    </OptIcon>
+  ),
+  '2 Front': (
+    <OptIcon>
+      <path d="M5 6.5h6M13 6.5h6" />
+      <path d="M3 8v4.5l3 3.5h12l3-3.5V8" strokeLinejoin="round" />
+      <path d="M11 8.5v8" strokeWidth="1.1" />
+    </OptIcon>
+  ),
+  '1 Side': (
+    <OptIcon>
+      <path d="M5 5v14" strokeWidth="1.1" />
+      <path d="M5 7h14" strokeWidth="1.1" />
+      <path d="M15 7l4 4-4 3.5" strokeLinejoin="round" />
+      <path d="M19 7V4" />
+    </OptIcon>
+  ),
+  '2 Side': (
+    <OptIcon>
+      <path d="M5 5v14" strokeWidth="1.1" />
+      <path d="M5 7h14" strokeWidth="1.1" />
+      <path d="M15 7l4 4-4 3.5" strokeLinejoin="round" />
+      <path d="M3 5V3M19 7V4" />
+    </OptIcon>
+  ),
+  'Shalwar Pockets': (
+    <OptIcon>
+      <path d="M9 3v14" />
+      <path d="M9 3h3.5c1.5 0 2.5 1 2.5 2.5V8l2 2-2 2v5" strokeLinejoin="round" />
+    </OptIcon>
+  ),
+  'Kali Pocket': (
+    <OptIcon>
+      <path d="M12 4v16" strokeWidth="1.1" />
+      <path d="M12 6c-2.5-1-5-2.5-7-5" strokeWidth="1.1" />
+      <path d="M12 10c-2.5-1-5-2.5-7-5" strokeWidth="1.1" />
+      <path d="M12 14c-2.5-1-5-2.5-7-5" strokeWidth="1.1" />
     </OptIcon>
   ),
 
-  'Single Side Pocket': (
+  Gol: (
     <OptIcon>
-      <path d="M9 3h6l1.5 3-1 14h-5l-1-14L9 3z" strokeLinejoin="round" />
-      <path d="M6.5 10.5c-1.2 1.4-1.2 3 0 4.2" stroke="#8a6c20" strokeWidth="1.6" />
+      <path d="M6 3v11c0 3.5 2.5 6.5 6 7 3.5-.5 6-3.5 6-7V3" strokeLinejoin="round" />
+      <path d="M6 14a6 6 0 0112 0" strokeLinejoin="round" />
     </OptIcon>
   ),
-  'Double Side Pocket': (
+  Square: (
     <OptIcon>
-      <path d="M9 3h6l1.5 3-1 14h-5l-1-14L9 3z" strokeLinejoin="round" />
-      <path d="M6.5 10.5c-1.2 1.4-1.2 3 0 4.2M17.5 10.5c1.2 1.4 1.2 3 0 4.2" stroke="#8a6c20" strokeWidth="1.6" />
+      <path d="M6 3v12c0 2.5 1 4 2 5h8c1-1 2-2.5 2-5V3" strokeLinejoin="round" />
+      <path d="M6 15h12" />
+    </OptIcon>
+  ),
+  Round: (
+    <OptIcon>
+      <path d="M4 18a8 8 0 0116 0" />
+      <path d="M8 18h8" />
+      <path d="M4 18H2M22 18h-2" />
+    </OptIcon>
+  ),
+  Double: (
+    <OptIcon>
+      <path d="M4 8h16" />
+      <path d="M4 16h16" />
+      <path d="M4 8v8M20 8v8" />
+    </OptIcon>
+  ),
+  Katti: (
+    <OptIcon>
+      <path d="M6 3v13c0 1.5 1 2.5 2.5 2.5h7c1.5 0 2.5-1 2.5-2.5V3" strokeLinejoin="round" />
+      <path d="M9.5 3v15.5" strokeWidth="1.2" />
     </OptIcon>
   ),
 
-  'Shalwar Pocket': (
+  Custom: (
     <OptIcon>
-      <path d="M9 3v18M9 3h4c1.5 0 2.5 1 2.5 2.4v1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9 8.5h4.5" />
-    </OptIcon>
-  ),
-
-  'Round Daman': (
-    <OptIcon>
-      <path d="M7 3v11c0 3 2.2 6 5 7 2.8-1 5-4 5-7V3" strokeLinejoin="round" />
-      <circle cx="12" cy="6" r="0.9" fill="currentColor" />
-      <circle cx="12" cy="10" r="0.9" fill="currentColor" />
-    </OptIcon>
-  ),
-  'Square Daman': (
-    <OptIcon>
-      <path d="M7 3v13c0 2.2 1 3.6 2 4.6h6c1-1 2-2.4 2-4.6V3" strokeLinejoin="round" />
-      <circle cx="12" cy="6" r="0.9" fill="currentColor" />
-      <circle cx="12" cy="10" r="0.9" fill="currentColor" />
-    </OptIcon>
-  ),
-
-  'Simple Cuff': (
-    <OptIcon>
-      <rect x="3" y="9" width="18" height="6" rx="1" />
-      <circle cx="18" cy="12" r="0.9" fill="currentColor" />
-    </OptIcon>
-  ),
-  'Simple Round Cuff': (
-    <OptIcon>
-      <path d="M3 9h15a3 3 0 010 6H3" strokeLinejoin="round" strokeLinecap="round" />
-      <circle cx="17.2" cy="12" r="0.9" fill="currentColor" />
-    </OptIcon>
-  ),
-  'Simple Sleeve': (
-    <OptIcon>
-      <path d="M2 9h20" />
-      <path d="M2 15h20" />
-      <path d="M2 9v6M22 9v6" />
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+      <path d="M4 9v2h16M9 4v6M15 4v10" />
+      <path d="M4 9h16" strokeWidth="1.1" />
     </OptIcon>
   ),
 
@@ -141,6 +156,27 @@ export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
       <rect x="4" y="4" width="16" height="16" rx="2" />
       <path d="M4 8c4 2 12-2 16 0M4 12c4 2 12-2 16 0M4 16c4 2 12-2 16 0" strokeWidth="1.3" />
       <path d="M19 20l2.5 2.5" />
+    </OptIcon>
+  ),
+
+  'Designer Suit': (
+    <OptIcon>
+      <path d="M8 3L4 6v14h16V6l-4-3-4 2-4-2z" strokeLinejoin="round" />
+      <path d="M12 5l-1.5 4L12 12l1.5-3L12 5z" strokeWidth="1.3" strokeLinejoin="round" />
+    </OptIcon>
+  ),
+
+  'Hidden Placket': (
+    <OptIcon>
+      <path d="M8 3v18M16 3v18" />
+      <path d="M8 3c2 1.5 2 16.5 0 18" strokeDasharray="2 2" />
+    </OptIcon>
+  ),
+
+  'Netted Leg Opening': (
+    <OptIcon>
+      <path d="M9 2h6l.8 15h-7.6L9 2z" strokeLinejoin="round" />
+      <path d="M8.4 17h7.2M8.7 19h6.6M9 21h6" strokeWidth="1.3" />
     </OptIcon>
   ),
 
@@ -200,13 +236,6 @@ export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
     </OptIcon>
   ),
 
-  'Designer Suit': (
-    <OptIcon>
-      <path d="M8 3L4 6v14h16V6l-4-3-4 2-4-2z" strokeLinejoin="round" />
-      <path d="M12 5l-1.5 4L12 12l1.5-3L12 5z" strokeWidth="1.3" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-
   'Sleeve Pleat': (
     <OptIcon>
       <path d="M8 2v20M12 2v20M16 2v20" />
@@ -216,13 +245,6 @@ export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
   'No Pleat': (
     <OptIcon>
       <rect x="8" y="2" width="8" height="20" rx="1" />
-    </OptIcon>
-  ),
-
-  'Hidden Placket': (
-    <OptIcon>
-      <path d="M8 3v18M16 3v18" />
-      <path d="M8 3c2 1.5 2 16.5 0 18" strokeDasharray="2 2" />
     </OptIcon>
   ),
 
@@ -239,13 +261,6 @@ export const DESIGN_OPTION_ICONS: Record<DesignOptionKey, ReactElement> = {
   'Balochi Shalwar': (
     <OptIcon>
       <path d="M6 2h12l-1.5 8c1 1 1.5 2.4 1.5 4l-1 8h-2.4l-.6-9-.6 9h-3l-.6-9-.6 9H6.5l-1-8c0-1.6.5-3 1.5-4L6 2z" strokeWidth="1.4" strokeLinejoin="round" />
-    </OptIcon>
-  ),
-
-  'Netted Leg Opening': (
-    <OptIcon>
-      <path d="M9 2h6l.8 15h-7.6L9 2z" strokeLinejoin="round" />
-      <path d="M8.4 17h7.2M8.7 19h6.6M9 21h6" strokeWidth="1.3" />
     </OptIcon>
   ),
 };
